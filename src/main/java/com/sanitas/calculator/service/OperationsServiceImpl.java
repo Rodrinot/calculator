@@ -12,19 +12,41 @@ public class OperationsServiceImpl implements OperationsService {
         TracerImpl tracer = new TracerImpl();
         Double result = 0.d;
 
-        // TODO: Check if value1 and value2 are nulls and operator exists.
-        /** Addition */
-        if (operator.equals(EnumOperator.ADD.getValue())) {
-            result = value1 + value2;
-        }
-        /** Substraction */
-        else if (operator.equals(EnumOperator.SUBTRACT.getValue())) {
-            result = value1 - value2;
-        }
+        // Check if the values are not null
+        if (!checkNullValues(value1, value2)) {
+            // Check if the operation is supported by the calculator
+            switch (checkOperation(operator)) {
 
-        tracer.trace(result);
-
+                case 1:
+                    // Addition
+                    result = value1 + value2;
+                    break;
+                case 2:
+                    // Subtraction
+                    result = value1 - value2;
+                    break;
+                default:
+                    break;
+            }
+            tracer.trace(result);
+        }
         return result;
+    }
+
+    private boolean checkNullValues(Double value1, Double value2) {
+        return ((value1 == null) || (value2 == null) || (value1.isNaN()) || (value2.isNaN()));
+    }
+
+    /**
+     * Check if the operator is supported
+     *
+     * @param operator
+     *        Operator of the calculator
+     *
+     * @return code of the operator, 0 if it is not supported
+     */
+    private int checkOperation(String operator) {
+        return EnumOperator.fromValue(operator).getCode();
     }
 
 }
