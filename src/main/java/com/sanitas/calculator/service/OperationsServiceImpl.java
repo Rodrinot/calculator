@@ -15,7 +15,6 @@ public class OperationsServiceImpl implements OperationsService {
         // Check if the values are not null
         if (!checkNullValues(value1, value2)) {
             // Check if the operation is supported by the calculator
-            // TODO: Check when the values are empties.
             switch (checkOperation(operator)) {
 
                 case 1:
@@ -34,6 +33,16 @@ public class OperationsServiceImpl implements OperationsService {
         return result;
     }
 
+    /**
+     * Check if the values are nulls
+     * @param value1
+     *        First value.
+     *
+     * @param value2
+     *        Second value.
+     *
+     * @return false if there are not null values, true in other cases
+     */
     private boolean checkNullValues(Double value1, Double value2) {
         return ((value1 == null) || (value2 == null) || (value1.isNaN()) || (value2.isNaN()));
     }
