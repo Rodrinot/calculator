@@ -1,2 +1,3 @@
 # calculator
- Calculator API that allows to calculate different arithmetic operations.
+
+Calculator API that allows to calculate different arithmetic operations.
