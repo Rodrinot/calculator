@@ -1,6 +1,8 @@
 package com.sanitas.calculator.service;
 
 import com.sanitas.calculator.enums.EnumOperator;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 import io.corp.calculator.TracerImpl;
 
@@ -15,6 +17,7 @@ public class OperationsServiceImpl implements OperationsService {
         // Check if the values are not null
         if (!checkNullValues(value1, value2)) {
             // Check if the operation is supported by the calculator
+            // TODO: Check when the values are empties.
             switch (checkOperation(operator)) {
 
                 case 1:
