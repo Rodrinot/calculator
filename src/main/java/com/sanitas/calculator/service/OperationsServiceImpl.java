@@ -1,8 +1,6 @@
 package com.sanitas.calculator.service;
 
 import com.sanitas.calculator.enums.EnumOperator;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 import io.corp.calculator.TracerImpl;
 

@@ -1,6 +1,5 @@
 package com.sanitas.calculator.enums;
 
-import com.sanitas.calculator.enums.EnumOperator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
